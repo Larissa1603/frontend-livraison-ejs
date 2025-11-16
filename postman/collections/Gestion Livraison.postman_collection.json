@@ -1481,7 +1481,7 @@
       ]
     },
     {
-      "name": "utilisateur",
+      "name": "utilisateuravec",
       "request": {
         "method": "POST",
         "header": [
@@ -1581,6 +1581,75 @@
           ],
           "responseTime": "2025-11-16T05:03:44.467Z",
           "body": "{\n    \"id\": 9,\n    \"nom\": \"Latrous1 test\",\n    \"email\": \"latrous1@somn.com\",\n    \"mot_de_passe\": \"Marka126\",\n    \"role_id\": 1,\n    \"updatedAt\": \"2025-11-16T05:03:30.403Z\",\n    \"createdAt\": \"2025-11-16T05:03:30.403Z\"\n}"
+        },
+        {
+          "name": "utilisateuravec",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nom\": \"Akram Latrous\",\r\n  \"email\": \"akram@example.com\",\r\n  \"mot_de_passe\": \"Marka123456\",\r\n  \"role_id\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/utilisateurs",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "utilisateurs"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": "json",
+          "_postman_previewtype": "html",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "227"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"e3-v1f3UV7QwDPz3A9k3Jh+gSw3roY\""
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 16 Nov 2025 22:29:52 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "responseTime": "2025-11-16T22:33:12.908Z",
+          "body": "{\n    \"id\": 13,\n    \"nom\": \"Akram Latrous\",\n    \"email\": \"akram@example.com\",\n    \"mot_de_passe\": \"$2b$10$0Z8WrRQqf4rnfQF1mvWQxOPIfhvwPj14KORREYn18kwAj4y0d1WXG\",\n    \"role_id\": 1,\n    \"updatedAt\": \"2025-11-16T22:29:52.530Z\",\n    \"createdAt\": \"2025-11-16T22:29:52.530Z\"\n}"
         }
       ]
     },
@@ -1876,7 +1945,74 @@
             }
           ]
         }
-      }
+      },
+      "response": [
+        {
+          "name": "roles",
+          "originalRequest": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:3000/roles?page=1&limit=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "roles"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "uuid": "654b84d8-f5ff-48d4-9ced-26fc6caf68b9"
+                },
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "uuid": "48c50af8-7d00-48aa-a1e3-938418319e58"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "_postman_previewtype": "html",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "307"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"133-QeYhTbTjZEiMwD1BJ62Z0Sh9w+g\""
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 16 Nov 2025 19:22:32 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "responseTime": "2025-11-16T19:22:39.621Z",
+          "body": "[\n    {\n        \"id\": 1,\n        \"nom\": \"Admin\",\n        \"createdAt\": \"2025-11-16T02:00:03.000Z\",\n        \"updatedAt\": \"2025-11-16T02:00:03.000Z\"\n    },\n    {\n        \"id\": 2,\n        \"nom\": \"Livreur\",\n        \"createdAt\": \"2025-11-16T02:00:03.000Z\",\n        \"updatedAt\": \"2025-11-16T02:00:03.000Z\"\n    },\n    {\n        \"id\": 3,\n        \"nom\": \"Client\",\n        \"createdAt\": \"2025-11-16T02:00:03.000Z\",\n        \"updatedAt\": \"2025-11-16T02:00:03.000Z\"\n    }\n]"
+        }
+      ]
     },
     {
       "name": "roles",
@@ -1909,7 +2045,78 @@
             "roles"
           ]
         }
-      }
+      },
+      "response": [
+        {
+          "name": "roles",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nom\": \"Gestionnaire\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/roles",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "roles"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": "json",
+          "_postman_previewtype": "html",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "107"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"6b-/kNG1Klu8Fhh7pPLH4qsbM0xxW8\""
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 16 Nov 2025 19:22:59 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "responseTime": "2025-11-16T19:23:05.284Z",
+          "body": "{\n    \"id\": 5,\n    \"nom\": \"Gestionnaire\",\n    \"updatedAt\": \"2025-11-16T19:22:59.506Z\",\n    \"createdAt\": \"2025-11-16T19:22:59.506Z\"\n}"
+        }
+      ]
     },
     {
       "name": "rolebyid",
@@ -1918,7 +2125,75 @@
         "url": {
           "raw": ""
         }
-      }
+      },
+      "response": [
+        {
+          "name": "rolebyid",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text",
+                "uuid": "27ef6cf2-8228-44cf-a915-80acdc690c94"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3000/roles/3",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "roles",
+                "3"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "_postman_previewtype": "html",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "101"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"65-mHkFeiCgOL3/02lHALdMT85eKCE\""
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 16 Nov 2025 19:24:50 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "responseTime": "2025-11-16T19:24:55.740Z",
+          "body": "{\n    \"id\": 3,\n    \"nom\": \"Client\",\n    \"createdAt\": \"2025-11-16T02:00:03.000Z\",\n    \"updatedAt\": \"2025-11-16T02:00:03.000Z\"\n}"
+        }
+      ]
     },
     {
       "name": "modifier_rôle",
@@ -1952,7 +2227,79 @@
             "4"
           ]
         }
-      }
+      },
+      "response": [
+        {
+          "name": "modifier_rôle",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nom\": \"Super Admin\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/roles/3",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "roles",
+                "3"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "_postman_previewtype": "html",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "106"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"6a-/3UHSXYhmLHx8q53CMidaQdCI5c\""
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 16 Nov 2025 19:25:29 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "responseTime": "2025-11-16T19:25:32.394Z",
+          "body": "{\n    \"id\": 3,\n    \"nom\": \"Super Admin\",\n    \"createdAt\": \"2025-11-16T02:00:03.000Z\",\n    \"updatedAt\": \"2025-11-16T19:25:29.232Z\"\n}"
+        }
+      ]
     },
     {
       "name": "supprimer_rôle",
@@ -1970,7 +2317,63 @@
             "4"
           ]
         }
-      }
+      },
+      "response": [
+        {
+          "name": "supprimer_rôle",
+          "originalRequest": {
+            "method": "DELETE",
+            "url": {
+              "raw": "http://localhost:3000/roles/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "roles",
+                "2"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "_postman_previewtype": "html",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "28"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"1c-ZzGNPAxOaTgLx1Uh8Wq0XKiCXJo\""
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 16 Nov 2025 19:25:57 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "responseTime": "2025-11-16T19:26:01.286Z",
+          "body": "{\n    \"message\": \"Role supprimé\"\n}"
+        }
+      ]
     },
     {
       "name": "allstatuts",
@@ -1997,7 +2400,74 @@
             }
           ]
         }
-      }
+      },
+      "response": [
+        {
+          "name": "allstatuts",
+          "originalRequest": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:3000/statuts?page=1&limit=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "statuts"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "uuid": "94037ce7-09a7-47ab-9c1d-328e74efa243"
+                },
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "uuid": "3aaca22e-ad60-4993-a78d-d11d67bb0fcb"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "_postman_previewtype": "html",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "312"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"138-Cyx3qNXc3JZHNbzy2kZPy3qgeDE\""
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 16 Nov 2025 19:26:30 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "responseTime": "2025-11-16T19:26:34.448Z",
+          "body": "[\n    {\n        \"id\": 2,\n        \"nom\": \"En cours\",\n        \"createdAt\": \"2025-11-16T02:00:03.000Z\",\n        \"updatedAt\": \"2025-11-16T02:00:03.000Z\"\n    },\n    {\n        \"id\": 3,\n        \"nom\": \"Livrée\",\n        \"createdAt\": \"2025-11-16T02:00:03.000Z\",\n        \"updatedAt\": \"2025-11-16T02:00:03.000Z\"\n    },\n    {\n        \"id\": 4,\n        \"nom\": \"Annulée\",\n        \"createdAt\": \"2025-11-16T04:19:10.000Z\",\n        \"updatedAt\": \"2025-11-16T04:19:10.000Z\"\n    }\n]"
+        }
+      ]
     },
     {
       "name": "staut",
@@ -2030,7 +2500,78 @@
             "statuts"
           ]
         }
-      }
+      },
+      "response": [
+        {
+          "name": "staut",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nom\": \"Annulée\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/statuts",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "statuts"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": "json",
+          "_postman_previewtype": "html",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "103"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"67-AfpL1TZcBcFrGezBR3/RTuxfcl0\""
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 16 Nov 2025 19:27:04 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "responseTime": "2025-11-16T19:27:08.923Z",
+          "body": "{\n    \"id\": 5,\n    \"nom\": \"Annulée\",\n    \"updatedAt\": \"2025-11-16T19:27:04.463Z\",\n    \"createdAt\": \"2025-11-16T19:27:04.463Z\"\n}"
+        }
+      ]
     },
     {
       "name": "statutbyid",
@@ -2048,7 +2589,63 @@
             "1"
           ]
         }
-      }
+      },
+      "response": [
+        {
+          "name": "statutbyid",
+          "originalRequest": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:3000/statuts/3",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "statuts",
+                "3"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "_postman_previewtype": "html",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "102"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"66-kG6v4k+XyElMzvkzSvX9nNPXF5I\""
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 16 Nov 2025 19:27:31 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "responseTime": "2025-11-16T19:27:35.186Z",
+          "body": "{\n    \"id\": 3,\n    \"nom\": \"Livrée\",\n    \"createdAt\": \"2025-11-16T02:00:03.000Z\",\n    \"updatedAt\": \"2025-11-16T02:00:03.000Z\"\n}"
+        }
+      ]
     },
     {
       "name": "modifier_statut",
@@ -2057,7 +2654,72 @@
         "url": {
           "raw": ""
         }
-      }
+      },
+      "response": [
+        {
+          "name": "modifier_statut",
+          "originalRequest": {
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nom\": \"Livraison échouée\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/statuts/3",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "statuts",
+                "3"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "_postman_previewtype": "html",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "114"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"72-N6DSPrxAeyzyms2d0YptXkCndCc\""
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 16 Nov 2025 19:29:05 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "responseTime": "2025-11-16T19:29:09.713Z",
+          "body": "{\n    \"id\": 3,\n    \"nom\": \"Livraison échouée\",\n    \"createdAt\": \"2025-11-16T02:00:03.000Z\",\n    \"updatedAt\": \"2025-11-16T19:29:05.101Z\"\n}"
+        }
+      ]
     },
     {
       "name": "supprimer_statut",
@@ -2075,7 +2737,429 @@
             "1"
           ]
         }
-      }
+      },
+      "response": [
+        {
+          "name": "supprimer_statut",
+          "originalRequest": {
+            "method": "DELETE",
+            "url": {
+              "raw": "http://localhost:3000/statuts/4",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "statuts",
+                "4"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "_postman_previewtype": "html",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "30"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"1e-rf+mU34aSXdBfYs+R6xG8kKg088\""
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 16 Nov 2025 19:29:37 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "responseTime": "2025-11-16T19:29:41.567Z",
+          "body": "{\n    \"message\": \"Statut supprimé\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "utilisateur_invalide",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": [
+        {
+          "name": "utilisateur_valide",
+          "originalRequest": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nom\": \"mohamed donny\",\r\n  \"email\": \"mohamed@example.com\",\r\n  \"mot_de_passe\": \"Akramff123\",\r\n  \"role_id\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/utilisateurs",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "utilisateurs"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": "json",
+          "_postman_previewtype": "html",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "229"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"e5-ljie5UyQTUb4SuwGABwpbThrxIM\""
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 16 Nov 2025 22:12:43 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "responseTime": "2025-11-16T22:12:52.656Z",
+          "body": "{\n    \"id\": 10,\n    \"nom\": \"mohamed donny\",\n    \"email\": \"mohamed@example.com\",\n    \"mot_de_passe\": \"$2b$10$mlHE/Hu8lt/L7zxvvq8XiegWgXFEQc5TH9PDFGaTyWasBNnG2.Isi\",\n    \"role_id\": 1,\n    \"updatedAt\": \"2025-11-16T22:12:43.378Z\",\n    \"createdAt\": \"2025-11-16T22:12:43.378Z\"\n}"
+        },
+        {
+          "name": "utilisateur_invalide",
+          "originalRequest": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"akram@\",\r\n  \"mot_de_passe\": \"123\",\r\n  \"role_id\": \"abc\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/utilisateurs",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "utilisateurs"
+              ]
+            }
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "_postman_previewlanguage": "json",
+          "_postman_previewtype": "html",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "536"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"218-7u9C1FD1IFWBYezzu7exC0929YI\""
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 16 Nov 2025 22:15:43 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "responseTime": "2025-11-16T22:16:09.563Z",
+          "body": "{\n    \"errors\": [\n        {\n            \"type\": \"field\",\n            \"msg\": \"Le nom est requis.\",\n            \"path\": \"nom\",\n            \"location\": \"body\"\n        },\n        {\n            \"type\": \"field\",\n            \"msg\": \"Le nom doit contenir au moins 2 caractères.\",\n            \"path\": \"nom\",\n            \"location\": \"body\"\n        },\n        {\n            \"type\": \"field\",\n            \"value\": \"akram@\",\n            \"msg\": \"Format d’email invalide.\",\n            \"path\": \"email\",\n            \"location\": \"body\"\n        },\n        {\n            \"type\": \"field\",\n            \"value\": \"123\",\n            \"msg\": \"Le mot de passe doit contenir au moins 6 caractères.\",\n            \"path\": \"mot_de_passe\",\n            \"location\": \"body\"\n        },\n        {\n            \"type\": \"field\",\n            \"value\": \"abc\",\n            \"msg\": \"Le rôle doit être un entier positif.\",\n            \"path\": \"role_id\",\n            \"location\": \"body\"\n        }\n    ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "authentification",
+      "request": {
+        "method": "POST",
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"akram@example.com\",\r\n  \"mot_de_passe\": \"Marka123456\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "New Request",
+          "originalRequest": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"akram@example.com\",\r\n  \"mot_de_passe\": \"Markal123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "_postman_previewlanguage": "json",
+          "_postman_previewtype": "html",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "35"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"23-7jCyPtDgScrn5xTBmr7N4XCDe/c\""
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 16 Nov 2025 22:18:20 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "responseTime": "2025-11-16T22:18:57.805Z",
+          "body": "{\n    \"error\": \"Mot de passe incorrect.\"\n}"
+        },
+        {
+          "name": "authentification",
+          "originalRequest": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"akram@example.com\",\r\n  \"mot_de_passe\": \"Marka123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "_postman_previewtype": "html",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "163"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"a3-RLlI5W+oJNaHhVxeUt1AKpzy7ow\""
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 16 Nov 2025 22:34:37 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "responseTime": "2025-11-16T22:34:42.604Z",
+          "body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsInJvbGUiOjEsImlhdCI6MTc2MzMzMjQ3NywiZXhwIjoxNzYzMzM2MDc3fQ.0FscmEQd09HwvobEzsDBcXb3_6oNtNXKdl04jgfdVFE\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "utilisateur_protegee",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": [
+        {
+          "name": "utilisateur_protegee",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "",
+                "type": "text",
+                "uuid": "083e1a78-0a39-49ce-9ca8-89a9b4132d35"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3000/utilisateurs",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "utilisateurs"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "_postman_previewtype": "html",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "703"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"2bf-RPVfmLM0FK7yWIF7LBzMUgInt38\""
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 16 Nov 2025 22:40:07 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "responseTime": "2025-11-16T22:40:16.040Z",
+          "body": "{\n    \"total\": 2,\n    \"page\": 1,\n    \"data\": [\n        {\n            \"id\": 10,\n            \"nom\": \"mohamed donny\",\n            \"email\": \"mohamed@example.com\",\n            \"mot_de_passe\": \"$2b$10$mlHE/Hu8lt/L7zxvvq8XiegWgXFEQc5TH9PDFGaTyWasBNnG2.Isi\",\n            \"role_id\": 1,\n            \"createdAt\": \"2025-11-16T22:12:43.000Z\",\n            \"updatedAt\": \"2025-11-16T22:12:43.000Z\",\n            \"Role\": {\n                \"id\": 1,\n                \"nom\": \"Admin\",\n                \"createdAt\": \"2025-11-16T02:00:03.000Z\",\n                \"updatedAt\": \"2025-11-16T02:00:03.000Z\"\n            }\n        },\n        {\n            \"id\": 13,\n            \"nom\": \"Akram Latrous\",\n            \"email\": \"akram@example.com\",\n            \"mot_de_passe\": \"$2b$10$0Z8WrRQqf4rnfQF1mvWQxOPIfhvwPj14KORREYn18kwAj4y0d1WXG\",\n            \"role_id\": 1,\n            \"createdAt\": \"2025-11-16T22:29:52.000Z\",\n            \"updatedAt\": \"2025-11-16T22:29:52.000Z\",\n            \"Role\": {\n                \"id\": 1,\n                \"nom\": \"Admin\",\n                \"createdAt\": \"2025-11-16T02:00:03.000Z\",\n                \"updatedAt\": \"2025-11-16T02:00:03.000Z\"\n            }\n        }\n    ]\n}"
+        }
+      ]
     }
   ]
 }

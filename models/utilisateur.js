@@ -1,5 +1,6 @@
-const { DataTypes } = require('sequelize');
-const { sequelize } = require('../config/database');
+const { DataTypes } = require('sequelize')
+const { sequelize } = require('../config/database')
+const bcrypt = require('bcrypt')
 
 const Utilisateur = sequelize.define('Utilisateur', {
   nom: {
@@ -38,6 +39,20 @@ const Utilisateur = sequelize.define('Utilisateur', {
       }
     }
   }
-});
+}, {
+  tableName: 'utilisateurs',
+  timestamps: true
+})
 
-module.exports = Utilisateur;
+// Hook pour hacher le mot de passe avant création
+Utilisateur.beforeCreate(async (utilisateur) => {
+  const salt = await bcrypt.genSalt(10)
+  utilisateur.mot_de_passe = await bcrypt.hash(utilisateur.mot_de_passe, salt)
+})
+
+// Méthode pour vérifier le mot de passe
+Utilisateur.prototype.verifyPassword = function (mot_de_passe) {
+  return bcrypt.compare(mot_de_passe, this.mot_de_passe)
+}
+
+module.exports = Utilisateur

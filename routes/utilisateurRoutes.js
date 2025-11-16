@@ -1,11 +1,15 @@
-const express = require('express');
-const router = express.Router();
-const utilisateurController = require('../controllers/utilisateurController');
+const express = require('express')
+const router = express.Router()
+const utilisateurController = require('../controllers/utilisateurController')
+const { createUtilisateurValidator } = require('../validators/utilisateurValidator')
+const validateRequest = require('../middlewares/validateRequest')
+const auth = require('../middlewares/authMiddleware')
 
-router.get('/', utilisateurController.getAll);
-router.post('/', utilisateurController.create);
-router.get('/:id', utilisateurController.getById);
-router.put('/:id', utilisateurController.update);
-router.delete('/:id', utilisateurController.delete);
+router.get('/', auth, utilisateurController.getAll)
+router.get('/:id', auth, utilisateurController.getById)
 
-module.exports = router;
+router.post('/', createUtilisateurValidator, validateRequest, utilisateurController.create)
+router.put('/:id', utilisateurController.update)
+router.delete('/:id', utilisateurController.delete)
+
+module.exports = router
