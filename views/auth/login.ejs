@@ -1,0 +1,21 @@
+<h1 class="mb-4"><%= title %></h1>
+
+<% if (error) { %>
+  <div class="alert alert-danger"><%= error %></div>
+<% } %>
+
+<form method="POST" action="/auth-ui/vue/create" class="mb-4">
+  <div class="mb-3">
+    <label for="email" class="form-label">Email :</label>
+    <input type="email" id="email" name="email" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="mot_de_passe" class="form-label">Mot de passe :</label>
+    <input type="password" id="mot_de_passe" name="mot_de_passe" class="form-control" required>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Se connecter</button>
+</form>
+
+<a href="/" class="btn btn-secondary">Retour à l’accueil</a>
