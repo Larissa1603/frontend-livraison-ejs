@@ -1,0 +1,15 @@
+<div class="container mt-4">
+  <h2 class="mb-4"><%= role ? "✏️ Modifier" : "➕ Créer" %> un rôle</h2>
+
+  <form method="POST" action="<%= role ? '/roles-ui/update/' + role.id : '/roles-ui/create' %>" class="card p-4 shadow-sm">
+    <div class="mb-3">
+      <label for="nom" class="form-label">Nom du rôle</label>
+      <input type="text" id="nom" name="nom" class="form-control" value="<%= role ? role.nom : '' %>" required>
+    </div>
+
+    <button type="submit" class="btn btn-success">
+      <%= role ? "Mettre à jour" : "Enregistrer" %>
+    </button>
+    <a href="/roles-ui/vue" class="btn btn-secondary">⬅ Retour à la liste</a>
+  </form>
+</div>

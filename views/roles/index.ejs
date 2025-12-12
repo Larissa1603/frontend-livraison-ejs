@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Liste des rôles</h2>
+  <a href="/roles-ui/new" class="btn btn-primary mb-3">➕ Ajouter un rôle</a>
+
+  <% if (roles && roles.length > 0) { %>
+    <table class="table table-striped table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th>Nom du rôle</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% roles.forEach(r => { %>
+          <tr>
+            <td><%= r.nom %></td>
+            <td>
+              <a href="/roles-ui/edit/<%= r.id %>" class="btn btn-sm btn-warning">Modifier</a>
+              <a href="/roles-ui/delete/<%= r.id %>" class="btn btn-sm btn-danger">Supprimer</a>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <div class="alert alert-info">Aucun rôle trouvé.</div>
+  <% } %>
+</div>
