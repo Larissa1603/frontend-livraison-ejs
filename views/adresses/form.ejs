@@ -1,0 +1,30 @@
+<div class="container mt-4">
+  <h2 class="mb-4"><%= adresse ? "✏️ Modifier" : "➕ Créer" %> une adresse</h2>
+
+  <form method="POST" action="<%= adresse ? '/adresses-ui/update/' + adresse.id : '/adresses-ui/create' %>" class="card p-4 shadow-sm">
+    <div class="mb-3">
+      <label for="rue" class="form-label">Rue</label>
+      <input type="text" id="rue" name="rue" class="form-control" value="<%= adresse ? adresse.rue : '' %>" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="ville" class="form-label">Ville</label>
+      <input type="text" id="ville" name="ville" class="form-control" value="<%= adresse ? adresse.ville : '' %>" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="province" class="form-label">Province</label>
+      <input type="text" id="province" name="province" class="form-control" value="<%= adresse ? adresse.province : '' %>" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="code_postal" class="form-label">Code postal</label>
+      <input type="text" id="code_postal" name="code_postal" class="form-control" value="<%= adresse ? adresse.code_postal : '' %>" required>
+    </div>
+
+    <button type="submit" class="btn btn-success">
+      <%= adresse ? "Mettre à jour" : "Enregistrer" %>
+    </button>
+    <a href="/adresses-ui/vue" class="btn btn-secondary">⬅ Retour à la liste</a>
+  </form>
+</div>
