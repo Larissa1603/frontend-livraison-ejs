@@ -1,0 +1,14 @@
+const express = require('express');
+const router = express.Router();
+const authController = require('../controllers/authController');
+
+// Formulaire de connexion → /auth-ui/vue/login
+router.get('/vue/login', authController.loginForm);
+
+// Traitement du login → /auth-ui/vue/create
+router.post('/vue/create', authController.login);
+
+// Déconnexion → /auth-ui/vue/logout
+router.get('/vue/logout', authController.logout);
+
+module.exports = router;
