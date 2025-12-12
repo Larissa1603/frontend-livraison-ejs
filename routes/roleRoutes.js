@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const roleController = require('../controllers/roleController');
 const { createRoleValidator } = require('../validators/roleValidator');
-const validateRequest = require('../middlewares/validateRequest');
+const validateRequest = require('../middleware/validateRequest');
 
 router.get('/', roleController.getAll);
 router.post('/', createRoleValidator, validateRequest, roleController.create);

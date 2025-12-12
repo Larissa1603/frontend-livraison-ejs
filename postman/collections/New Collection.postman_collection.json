@@ -1,0 +1,27 @@
+{
+  "info": {
+    "_postman_id": "b602f1b0-3465-4185-ae9b-cfd1635214d1",
+    "name": "ml-test",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "New Request",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": ""
+        }
+      }
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": ""
+        }
+      }
+    }
+  ]
+}

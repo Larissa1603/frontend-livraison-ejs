@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Liste des statuts</h2>
+  <a href="/statuts-ui/new" class="btn btn-primary mb-3">➕ Ajouter un statut</a>
+
+  <% if (statuts && statuts.length > 0) { %>
+    <table class="table table-striped table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th>Nom du statut</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% statuts.forEach(s => { %>
+          <tr>
+            <td><%= s.nom %></td>
+            <td>
+              <a href="/statuts-ui/edit/<%= s.id %>" class="btn btn-sm btn-warning">Modifier</a>
+              <a href="/statuts-ui/delete/<%= s.id %>" class="btn btn-sm btn-danger">Supprimer</a>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <div class="alert alert-info">Aucun statut trouvé.</div>
+  <% } %>
+</div>

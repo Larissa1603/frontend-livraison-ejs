@@ -1,0 +1,41 @@
+const { Client, Livraison, Utilisateur } = require('../models');
+const { Sequelize } = require('sequelize');
+
+exports.renderDashboard = async (req, res) => {
+  try {
+    const totalClients = await Client.count();
+    const totalLivraisons = await Livraison.count();
+    const totalUtilisateurs = await Utilisateur.count();
+
+    // Regrouper les livraisons par mois
+    const livraisonsParMois = await Livraison.findAll({
+      attributes: [
+        [Sequelize.fn('MONTH', Sequelize.col('date_livraison')), 'mois'],
+        [Sequelize.fn('COUNT', Sequelize.col('id')), 'total']
+      ],
+      group: ['mois'],
+      order: [['mois', 'ASC']]
+    });
+
+    // Préparer les données pour Chart.js
+    const monthLabels = livraisonsParMois.map(l => `Mois ${l.getDataValue('mois')}`);
+    const monthData = livraisonsParMois.map(l => l.getDataValue('total'));
+
+    res.render('dashboard/index', {
+      title: 'Tableau de bord',
+      user: res.locals.user,
+      totalClients,
+      totalLivraisons,
+      totalUtilisateurs,
+      monthLabels,
+      monthData,
+      error: null 
+    });
+  } catch (error) {
+    res.render('dashboard/index', {
+      title: 'Tableau de bord',
+      user: res.locals.user,
+      error: 'Erreur lors du chargement du tableau de bord.'
+    });
+  }
+};

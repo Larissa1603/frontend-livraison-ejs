@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const statutController = require('../controllers/statutController');
 const { createStatutValidator } = require('../validators/statutValidator');
-const validateRequest = require('../middlewares/validateRequest');
+const validateRequest = require('../middleware/validateRequest');
 
 router.get('/', statutController.getAll);
 router.post('/', createStatutValidator, validateRequest, statutController.create);

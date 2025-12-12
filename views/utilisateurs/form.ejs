@@ -1,0 +1,37 @@
+<div class="container mt-4">
+  <h2 class="mb-4"><%= utilisateur ? "✏️ Modifier" : "➕ Créer" %> un utilisateur</h2>
+
+  <form method="POST" action="<%= utilisateur ? '/utilisateurs-ui/update/' + utilisateur.id : '/utilisateurs-ui/create' %>" class="card p-4 shadow-sm">
+    <div class="mb-3">
+      <label for="nom" class="form-label">Nom</label>
+      <input type="text" id="nom" name="nom" class="form-control" value="<%= utilisateur ? utilisateur.nom : '' %>" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" id="email" name="email" class="form-control" value="<%= utilisateur ? utilisateur.email : '' %>" required>
+    </div>
+
+    <% if (!utilisateur) { %>
+      <!-- Champ mot de passe uniquement à la création -->
+      <div class="mb-3">
+        <label for="mot_de_passe" class="form-label">Mot de passe</label>
+        <input type="password" id="mot_de_passe" name="mot_de_passe" class="form-control" required>
+      </div>
+    <% } %>
+
+    <div class="mb-3">
+      <label for="role_id" class="form-label">Rôle</label>
+      <select id="role_id" name="role_id" class="form-select" required>
+        <% roles.forEach(r => { %>
+          <option value="<%= r.id %>" <%= utilisateur && utilisateur.role_id === r.id ? "selected" : "" %>><%= r.nom %></option>
+        <% }) %>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-success">
+      <%= utilisateur ? "Mettre à jour" : "Enregistrer" %>
+    </button>
+    <a href="/utilisateurs-ui/vue" class="btn btn-secondary">⬅ Retour à la liste</a>
+  </form>
+</div>

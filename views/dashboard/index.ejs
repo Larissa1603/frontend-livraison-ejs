@@ -1,0 +1,64 @@
+<h1 class="mb-4"><%= title %></h1>
+
+<% if (error) { %>
+  <div class="alert alert-danger"><%= error %></div>
+<% } else { %>
+  <div class="row mb-4">
+    <div class="col-md-4">
+      <div class="card text-bg-primary mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Clients</h5>
+          <p class="card-text"><%= totalClients %> enregistrés</p>
+          <a href="/clients-ui/vue" class="btn btn-light">Voir les clients</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card text-bg-success mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Livraisons</h5>
+          <p class="card-text"><%= totalLivraisons %> effectuées</p>
+          <a href="/livraisons-ui/vue" class="btn btn-light">Voir les livraisons</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card text-bg-warning mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Utilisateurs</h5>
+          <p class="card-text"><%= totalUtilisateurs %> actifs</p>
+          <a href="/utilisateurs-ui/vue" class="btn btn-light">Voir les utilisateurs</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Graphique Chart.js -->
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Livraisons par mois</h5>
+      <canvas id="livraisonsChart"></canvas>
+    </div>
+  </div>
+<% } %>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('livraisonsChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: <%- JSON.stringify(monthLabels) %>,
+      datasets: [{
+        label: 'Nombre de livraisons',
+        data: <%- JSON.stringify(monthData) %>,
+        backgroundColor: 'rgba(54, 162, 235, 0.6)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: { responsive: true, scales: { y: { beginAtZero: true } } }
+  });
+</script>

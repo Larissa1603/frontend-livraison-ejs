@@ -1,15 +1,30 @@
 const { Utilisateur } = require('../models');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
+// Afficher le formulaire de login
+exports.loginForm = (req, res) => {
+  res.render('auth/login', { title: 'Connexion', error: null });
+};
+
+// Traitement du login
 exports.login = async (req, res) => {
   const { email, mot_de_passe } = req.body;
 
   try {
-    const user = await Utilisateur.findOne({ where: { email } });
-    if (!user) return res.status(401).json({ error: 'Utilisateur non trouvé.' });
+    if (!email || !mot_de_passe) {
+      return res.render('auth/login', { title: 'Connexion', error: 'Email et mot de passe requis.' });
+    }
 
-    const isValid = await user.verifyPassword(mot_de_passe);
-    if (!isValid) return res.status(401).json({ error: 'Mot de passe incorrect.' });
+    const user = await Utilisateur.findOne({ where: { email } });
+    if (!user) {
+      return res.render('auth/login', { title: 'Connexion', error: 'Utilisateur non trouvé.' });
+    }
+
+    const isValid = await bcrypt.compare(mot_de_passe, user.mot_de_passe);
+    if (!isValid) {
+      return res.render('auth/login', { title: 'Connexion', error: 'Mot de passe incorrect.' });
+    }
 
     const token = jwt.sign(
       { id: user.id, role: user.role_id },
@@ -17,8 +32,20 @@ exports.login = async (req, res) => {
       { expiresIn: '1h' }
     );
 
-    res.json({ token });
+    // Stocker en session
+    req.session.token = token;
+    req.session.user = { id: user.id, email: user.email, role: user.role_id };
+
+    // ✅ Redirection vers le dashboard
+    res.redirect('/dashboard-ui/vue');
   } catch (error) {
-    res.status(500).json({ error: 'Erreur serveur.' });
+    res.render('auth/login', { title: 'Connexion', error: 'Erreur serveur.' });
   }
+};
+
+// Déconnexion
+exports.logout = (req, res) => {
+  req.session.destroy(() => {
+    res.redirect('/auth-ui/vue/login');
+  });
 };

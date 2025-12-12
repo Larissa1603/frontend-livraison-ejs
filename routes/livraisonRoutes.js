@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const livraisonController = require('../controllers/livraisonController');
 const { createLivraisonValidator } = require('../validators/livraisonValidator');
-const validateRequest = require('../middlewares/validateRequest');
+const validateRequest = require('../middleware/validateRequest');
 
 router.get('/', livraisonController.getAll);
 router.post('/', createLivraisonValidator, validateRequest, livraisonController.create);

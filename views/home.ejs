@@ -1,0 +1,13 @@
+<h1 class="mb-4"><%= title %></h1>
+
+<% if (user) { %>
+  <div class="alert alert-success">
+    Bienvenue <strong><%= user.email %></strong> (rôle: <%= user.role %>)
+  </div>
+  <a href="/auth-ui/vue/logout" class="btn btn-danger">Déconnexion</a>
+<% } else { %>
+  <div class="alert alert-info">
+    Vous n'êtes pas connecté.
+  </div>
+  <a href="/auth-ui/vue/login" class="btn btn-primary">Connexion</a>
+<% } %>

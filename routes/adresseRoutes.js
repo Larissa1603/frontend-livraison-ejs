@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const adresseController = require('../controllers/adresseController');
 const { createAdresseValidator } = require('../validators/adresseValidator');
-const validateRequest = require('../middlewares/validateRequest');
+const validateRequest = require('../middleware/validateRequest');
 
 router.get('/', adresseController.getAll);
 router.post('/', createAdresseValidator, validateRequest, adresseController.create);

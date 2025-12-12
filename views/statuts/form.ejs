@@ -1,0 +1,15 @@
+<div class="container mt-4">
+  <h2 class="mb-4"><%= statut ? "✏️ Modifier" : "➕ Créer" %> un statut</h2>
+
+  <form method="POST" action="<%= statut ? '/statuts-ui/update/' + statut.id : '/statuts-ui/create' %>" class="card p-4 shadow-sm">
+    <div class="mb-3">
+      <label for="nom" class="form-label">Nom du statut</label>
+      <input type="text" id="nom" name="nom" class="form-control" value="<%= statut ? statut.nom : '' %>" required>
+    </div>
+
+    <button type="submit" class="btn btn-success">
+      <%= statut ? "Mettre à jour" : "Enregistrer" %>
+    </button>
+    <a href="/statuts-ui/vue" class="btn btn-secondary">⬅ Retour à la liste</a>
+  </form>
+</div>

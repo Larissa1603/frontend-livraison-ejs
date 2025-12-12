@@ -1,0 +1,14 @@
+<div class="container text-center mt-5">
+  <h1 class="display-4 text-danger">500 - Erreur serveur</h1>
+  <p class="lead text-muted">
+    Une erreur interne est survenue. Veuillez réessayer plus tard.
+  </p>
+  <div class="mt-4">
+    <a href="/" class="btn btn-primary">Retour à l’accueil</a>
+    <% if (user) { %>
+      <a href="/dashboard-ui/vue" class="btn btn-secondary">Tableau de bord</a>
+    <% } else { %>
+      <a href="/auth-ui/vue/login" class="btn btn-secondary">Connexion</a>
+    <% } %>
+  </div>
+</div>
