@@ -1,0 +1,56 @@
+<div class="container mt-4">
+  <h2 class="mb-4"><%= livraison ? "✏️ Modifier" : "➕ Créer" %> une livraison</h2>
+
+  <form method="POST" action="<%= livraison ? '/livraisons-ui/update/' + livraison.id : '/livraisons-ui/create' %>" class="card p-4 shadow-sm">
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <input type="text" id="description" name="description" class="form-control" value="<%= livraison ? livraison.description : '' %>" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="date_livraison" class="form-label">Date de livraison</label>
+      <input type="date" id="date_livraison" name="date_livraison" class="form-control" value="<%= livraison ? livraison.date_livraison : '' %>" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="client_id" class="form-label">Client</label>
+      <select id="client_id" name="client_id" class="form-select" required>
+        <% clients.forEach(c => { %>
+          <option value="<%= c.id %>" <%= livraison && livraison.client_id === c.id ? "selected" : "" %>><%= c.nom %></option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="adresse_id" class="form-label">Adresse</label>
+      <select id="adresse_id" name="adresse_id" class="form-select" required>
+        <% adresses.forEach(a => { %>
+          <option value="<%= a.id %>" <%= livraison && livraison.adresse_id === a.id ? "selected" : "" %>><%= a.rue %>, <%= a.ville %></option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="utilisateur_id" class="form-label">Utilisateur</label>
+      <select id="utilisateur_id" name="utilisateur_id" class="form-select" required>
+        <% utilisateurs.forEach(u => { %>
+          <option value="<%= u.id %>" <%= livraison && livraison.utilisateur_id === u.id ? "selected" : "" %>><%= u.nom %></option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="statut_id" class="form-label">Statut</label>
+      <select id="statut_id" name="statut_id" class="form-select" required>
+        <% statuts.forEach(s => { %>
+          <option value="<%= s.id %>" <%= livraison && livraison.statut_id === s.id ? "selected" : "" %>><%= s.nom %></option>
+        <% }) %>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-success">
+      <%= livraison ? "Mettre à jour" : "Enregistrer" %>
+    </button>
+    <a href="/livraisons-ui/vue" class="btn btn-secondary">⬅ Retour à la liste</a>
+  </form>
+</div>
