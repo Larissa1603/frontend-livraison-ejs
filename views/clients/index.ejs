@@ -1,0 +1,32 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Liste des clients</h2>
+  <a href="/clients-ui/new" class="btn btn-primary mb-3">➕ Ajouter un client</a>
+
+  <% if (clients && clients.length > 0) { %>
+    <table class="table table-striped table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th>Nom</th>
+          <th>Email</th>
+          <th>Téléphone</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% clients.forEach(c => { %>
+          <tr>
+            <td><%= c.nom %></td>
+            <td><%= c.email %></td>
+            <td><%= c.telephone %></td>
+            <td>
+              <a href="/clients-ui/edit/<%= c.id %>" class="btn btn-sm btn-warning">Modifier</a>
+              <a href="/clients-ui/delete/<%= c.id %>" class="btn btn-sm btn-danger">Supprimer</a>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <div class="alert alert-info">Aucun client trouvé.</div>
+  <% } %>
+</div>
